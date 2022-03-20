@@ -22,6 +22,11 @@
 		<button id="A" type="button" class="btn btn-primary mt-5">1</button>
 		<button id="B" type="button" class="btn btn-primary mt-5">2</button> 
 	</article>
+	<article class="result">
+		<img id="img" class="rounded-circle mt-5" src="hbd_zeze.jpg" alt="animal">
+		<h2 id="animal" class="text-center mt-5">명칭</h2>
+		<h3 id="explain" class="text-center mt-5">설명</h3>
+	</article>
 	<input type="hidden" id="EI" value="0">
 	<input type="hidden" id="SN" value="0">
 	<input type="hidden" id="TF" value="0">
@@ -44,6 +49,12 @@
 			11: {"title": "문제 11번", "type": "JP", "A": "J", "B": "P"},
 			12: {"title": "문제 12번", "type": "JP", "A": "J", "B": "P"}
 		}
+		var result = {
+			"ISTJ": {"animal": "그냥그래", "explain": "istj 설명", "img": "/img/hbd_zeze.jpg"},
+			"ESTJ": {"animal": "안맞아", "explain": "ESTJ 설명", "img": "/img/hbd_zeze.jpg"},
+			"INTJ": {"animal": "그냥그래", "explain": "INTJ 설명", "img": "/img/hbd_zeze.jpg"}
+
+		}
 		function start() {
 			$(".start").hide();
 			$(".question").show();
@@ -60,12 +71,27 @@
 			next();
 		});
 		function next() {
-			$(".progress-bar").attr('style', 'width: calc(100/12*'+num+'%)'); // 1/12 칸씩 프로그레스 바가 채워짐
-			$("#title").html(q[num]["title"]);
-			$("#type").val(q[num]["type"]);
-			$("#A").html(q[num]["A"]);
-			$("#B").html(q[num]["B"]);
-			num++;
+			// 12문제가 끝나면 문제화면은 숨기고 결과화면 나타나기
+			if (num == 13) {
+				$(".question").hide();
+				$(".result").show();
+				var mbti = "";
+				($("#EI").val() < 2) ? mbti+="I" : mbti+="E";
+				($("#SN").val() < 2) ? mbti+="N" : mbti+="S";
+				($("#TF").val() < 2) ? mbti+="F" : mbti+="T";
+				($("#JP").val() < 2) ? mbti+="P" : mbti+="J";
+				alert(mbti);
+				$("#img").attr("src", result[mbti]["img"]);
+				$("#animal").html(result[mbti]["animal"]);
+				$("explain").html(result[mbti]["explain"]);
+			} else {
+				$(".progress-bar").attr('style', 'width: calc(100/12*'+num+'%)'); // 1/12 칸씩 프로그레스 바가 채워짐
+				$("#title").html(q[num]["title"]);
+				$("#type").val(q[num]["type"]);
+				$("#A").html(q[num]["A"]);
+				$("#B").html(q[num]["B"]);
+				num++;
+			}
 		}
 	</script>
 </body>
