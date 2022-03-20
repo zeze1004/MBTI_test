@@ -29,8 +29,8 @@
 		<button id="B" type="button" class="btn btn-primary mt-5">2</button> 
 	</article>
 	<article class="result">
-		<img id="img" class="rounded-circle mt-5" src="hbd_zeze.jpg" alt="animal">
-		<h2 id="animal" class="text-center mt-5">명칭</h2>
+		<img id="img" class="rounded-circle mt-5" src="hbd_zeze.jpg" alt="friend">
+		<h2 id="friend" class="text-center mt-5">명칭</h2>
 		<h3 id="explain" class="text-center mt-5">설명</h3>
         <div class="share addthis_inline_share_toolbox"></div>
 	</article>
@@ -64,9 +64,9 @@
 			12: {"title": "문제 12번", "type": "JP", "A": "J", "B": "P"}
 		}
 		var result = {
-			"ISTJ": {"animal": "그냥그래", "explain": "istj 설명", "img": "/img/hbd_zeze.jpg"},
-			"ESTJ": {"animal": "안맞아", "explain": "ESTJ 설명", "img": "/img/hbd_zeze.jpg"},
-			"INTJ": {"animal": "그냥그래", "explain": "INTJ 설명", "img": "/img/hbd_zeze.jpg"}
+			"ISTJ": {"friend": "그냥그래", "explain": "istj 설명", "img": "/img/hbd_zeze.jpg"},
+			"ESTJ": {"friend": "안맞아", "explain": "ESTJ 설명", "img": "/img/hbd_zeze.jpg"},
+			"INTJ": {"friend": "그냥그래", "explain": "INTJ 설명", "img": "/img/hbd_zeze.jpg"}
 
 		}
 		function start() {
@@ -96,7 +96,7 @@
 				($("#JP").val() < 2) ? mbti+="P" : mbti+="J";
 				alert(mbti);
 				$("#img").attr("src", result[mbti]["img"]);
-				$("#animal").html(result[mbti]["animal"]);
+				$("#friend").html(result[mbti]["friend"]);
 				$("explain").html(result[mbti]["explain"]);
 			} else {
 				$(".progress-bar").attr('style', 'width: calc(100/12*'+num+'%)'); // 1/12 칸씩 프로그레스 바가 채워짐
