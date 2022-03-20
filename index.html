@@ -16,7 +16,7 @@
 </head>
 <body class="container">
 	<article class="start">
-		<h1 class="mt-5 text-center">mbti 테스트</h1>
+		<h1 class="mt-5 text-center">제제의 우정테스트</h1>
 		<button type="button" class="btn btn-primary mt-5" onclick="start();">테스트 시작하기</button>
 	</article>
 	<article class="question">
@@ -50,23 +50,33 @@
 	<script>
 		var num = 1;
 		var q = {
-			1: {"title": "문제 1번", "type": "EI", "A": "E", "B": "I"},
-			2: {"title": "문제 2번", "type": "EI", "A": "E", "B": "I"},
-			3: {"title": "문제 3번", "type": "EI", "A": "E", "B": "I"},
-			4: {"title": "문제 4번", "type": "SN", "A": "S", "B": "N"},
-			5: {"title": "문제 5번", "type": "SN", "A": "S", "B": "N"},
-			6: {"title": "문제 6번", "type": "SN", "A": "S", "B": "N"},
-			7: {"title": "문제 7번", "type": "TF", "A": "T", "B": "F"},
-			8: {"title": "문제 8번", "type": "TF", "A": "T", "B": "F"},
-			9: {"title": "문제 9번", "type": "TF", "A": "T", "B": "F"},
-			10: {"title": "문제 10번", "type": "JP", "A": "J", "B": "P"},
-			11: {"title": "문제 11번", "type": "JP", "A": "J", "B": "P"},
-			12: {"title": "문제 12번", "type": "JP", "A": "J", "B": "P"}
+			1: {"title": "제제와 첫만남일 때 당신의 행동은?", "type": "EI", "A": "먼저 자기소개하기", "B": "제제가 먼저 말하길 기다리기"},
+			2: {"title": "제제와 대화하다 정적이 왔을 때 당신의 행동은?", "type": "EI", "A": "침묵은 용납 못해. 새로운 화제 던지기!", "B": "조용해졌어. 오히려 좋아."},
+			3: {"title": "제제와 헤어질 때 당신의 한 마디는?", "type": "EI", "A": "다음에 언제 볼까?", "B": "안녕히가세요."},
+			4: {"title": "AWS 한국지사장이 되겠다는 제제의 꿈을 들은 당신의 반응은?", "type": "SN", "A": "어떻게 될건데? 계획이 뭐야?", "B": "나 뽑아줘"},
+			5: {"title": "좀비를 걱정하는 제제를 향해 당신의 말은?", "type": "SN", "A": "그걸 왜 걱정해?", "B": "이마트로 달리자"},
+			6: {"title": "단골 집이 아닌 다른 곳을 가보자는 제제에게 당신은?", "type": "SN", "A": "놉! 익숙한데가 좋아", "B": "꼬! 새로운 공간은 언제나 환영이야"},
+			7: {"title": "면접 떨어졌어...ㅇ<-< 울적한 제제에게 응원의 한 마디는?", "type": "TF", "A": "부족한 점을 알았으니깐 보완하면 될거야", "B": "따흐읅 당장 불매하자"},
+			8: {"title": "같이 본 영화의 제제 감상편을 들은 당신의 반응은?", "type": "TF", "A": "호오 나는 감독의 의도는 ~~라 생각해", "B": "헐 그렇게 생각할 수 있겠구나"},
+			9: {"title": "mbti 질문 만들기 힘들어하는 제제를 보며 당신은?", "type": "TF", "A": "어쩌겠어 끝까지 해야지", "B": "힝 힘내 제제ㅠㅠ"},
+			10: {"title": "마감기간인데도 누워있는 제제를 보며 한 마디 해주자", "type": "JP", "A": "기간은 지키라고 있는거야!", "B": "벼락치기 효율성 최고^0^"},
+			11: {"title": "약속시간에 늦은 제제를 보며 당신은?", "type": "JP", "A": "약속은 지키라고 만들어진 것. 제제 정식 딱딱 차려!", "B": "코리안타임 인죵"},
+			12: {"title": "플젝 하는 제제를 향해 응원의 한 마디는?", "type": "JP", "A": "시작한거 끝을 보자", "B": "천천히 혀~ 지금도 충분히 멋져~"}
 		}
 		var result = {
-			"ISTJ": {"friend": "그냥그래", "explain": "istj 설명", "img": "/img/hbd_zeze.jpg"},
-			"ESTJ": {"friend": "안맞아", "explain": "ESTJ 설명", "img": "/img/hbd_zeze.jpg"},
-			"INTJ": {"friend": "그냥그래", "explain": "INTJ 설명", "img": "/img/hbd_zeze.jpg"}
+			"ISTJ": {"friend": "더 할 말 있으세요?", "explain": "제제가 눈치껏 필요한 얘기만 해서 편할거에요.", "img": "/img/hbd_zeze.jpg"},
+			"ESTJ": {"friend": "우리 사이 거리두기 2단계", "explain": "목표를 향해 꼼꼼하지만 불도저 같이 달리는 당신! 제제가 당신을 얼마나 존경하는지 아시나요. 제제의 원픽은 바로 당신!.", "img": "/img/hbd_zeze.jpg"},
+			"INTJ": {"friend": "따듯한 로봇이 있다면 바로 당신", "explain": "인간관계 칼같은 당신에게 나타난 제제! 헛소리 안하고 필요한 얘기만 하는 제제가 편할지도?!", "img": "/img/hbd_zeze.jpg"},
+			"INFJ": {"friend": "사랑해요", "explain": "따듯한 심장을 가진 당신에게 제제가 질척될 거에요. 우리 친하게 지내요!", "img": "/img/hbd_zeze.jpg"},
+			"ISFJ": {"friend": "사랑해요", "explain": "따듯한 심장을 가진 당신에게 제제가 질척될 거에요. 우리 친하게 지내요!", "img": "/img/hbd_zeze.jpg"},
+			"ENTJ": {"friend": "우리 사이 거리두기 2단계", "explain": "목표를 향해 불도저 같이 달리는 당신! 제제가 당신을 얼마나 존경하는지 아시나요. 제제의 원픽은 바로 당신!.", "img": "/img/hbd_zeze.jpg"},
+			"ENFJ": {"friend": "사랑해요", "explain": "따듯한 심장을 가진 당신에게 제제가 질척될 거에요. 우리 친하게 지내요!", "img": "/img/hbd_zeze.jpg"},
+			"ESFJ":  {"friend": "사랑해요", "explain": "따듯한 심장을 가진 당신에게 제제가 질척될 거에요. 우리 친하게 지내요!", "img": "/img/hbd_zeze.jpg"},
+			"ENTP": {"friend": "제제: 기 빨릴게", "explain": "제제의 헛소리도 재밌게 받아치는 당신! 제제가 당신을 좋아한대요.", "img": "/img/hbd_zeze.jpg"},
+			"INTP": {"friend": "사람한테 관심 없어요", "explain": "인간관계 칼같은 당신에게 나타난 제제! 제제의 헛소리가 가끔은 웃길지도?!", "img": "/img/hbd_zeze.jpg"},
+			"INFP": {"friend": "사랑해요", "explain": "따닷한 심성의 소유자 당신! 제제의 베프가 되어줄래요?", "img": "/img/hbd_zeze.jpg"},
+			"ISFP":  {"friend": "사랑해요", "explain": "만사가 귀찮은 당신에게 제제가 질척될 거에요. 우리 친하게 지내요!", "img": "/img/hbd_zeze.jpg"},
+
 
 		}
 		function start() {
@@ -94,10 +104,10 @@
 				($("#SN").val() < 2) ? mbti+="N" : mbti+="S";
 				($("#TF").val() < 2) ? mbti+="F" : mbti+="T";
 				($("#JP").val() < 2) ? mbti+="P" : mbti+="J";
-				alert(mbti);
+				alert(mbti + '일 확률 200% (출처: 하버드대 MBTI학과 석박통합과정 제제)');
 				$("#img").attr("src", result[mbti]["img"]);
 				$("#friend").html(result[mbti]["friend"]);
-				$("explain").html(result[mbti]["explain"]);
+				$("#explain").html(result[mbti]["explain"]);
 			} else {
 				$(".progress-bar").attr('style', 'width: calc(100/12*'+num+'%)'); // 1/12 칸씩 프로그레스 바가 채워짐
 				$("#title").html(q[num]["title"]);
